@@ -2,6 +2,22 @@ import os
 
 from config import MAX_CHARS
 
+schema_get_file_content = {
+    "type": "function",
+    "function": {
+        "name": "get_file_content",
+        "description": "Returns the content of a specific file relative to the working directory. If the maximum defined length is reached it will inform that the output is truncated ",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "File path to get the content from, relative to the working directory (default is the working directory itself)",
+                },
+            },
+        },
+    },
+}
 
 def get_file_content(working_directory: str, file_path: str) -> str:
     try:
